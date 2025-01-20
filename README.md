@@ -38,6 +38,20 @@ Use the docker-compose.yml from the project to deploy the container:
 docker compose up -d
 ```
 
+### Environment Variables
+
+The following environment variables can be used in the docke-compose.yml to configure the application:
+
+- `API_HOST`: The host for the API (default: `0.0.0.0`).
+- `API_PORT`: The port for the API (default: `9090`).
+- `UPDATE_INTERVAL`: The interval (in seconds) for fetching and storing IP addresses (default: `60`).
+- `USE_FALLBACK`: Whether to use fallback for fetching IP addresses (default: `True`).
+- `IP_SOURCE`: The source for fetching IP addresses. Can be `fritzbox` or `public` for external sources (default: `fritzbox`).
+- `FRITZBOX_HOST`: The hostname or IP address of the FritzBox router (default: `fritz.box`).
+- `ENABLE_REFRESH_IP_ENDPOINT`: Whether the `/refresh-public-ip` endpoint is enabled (default: `True`).
+- `RATE_LIMIT_IP_RENEWAL`: The minimum time (in seconds) between refresh requests to `/refresh-public-ip` (default: `300`).
+- `LOG_LEVEL`: The log level (e.g., `INFO`, `DEBUG`, `ERROR`) (default: `INFO`).
+
 ### API Documentation
 This application exposes the following API endpoints:
 
@@ -107,20 +121,6 @@ This application exposes the following API endpoints:
     "bytes_received": "800.00 MB"
     }
     ```
-
-### Environment Variables
-
-The following environment variables can be used in the docke-compose.yml to configure the application:
-
-- `API_HOST`: The host for the API (default: `0.0.0.0`).
-- `API_PORT`: The port for the API (default: `9090`).
-- `UPDATE_INTERVAL`: The interval (in seconds) for fetching and storing IP addresses (default: `60`).
-- `USE_FALLBACK`: Whether to use fallback for fetching IP addresses (default: `True`).
-- `IP_SOURCE`: The source for fetching IP addresses. Can be `fritzbox` or `public` for external sources (default: `fritzbox`).
-- `FRITZBOX_HOST`: The hostname or IP address of the FritzBox router (default: `fritz.box`).
-- `ENABLE_REFRESH_IP_ENDPOINT`: Whether the `/refresh-public-ip` endpoint is enabled (default: `True`).
-- `RATE_LIMIT_IP_RENEWAL`: The minimum time (in seconds) between refresh requests to `/refresh-public-ip` (default: `300`).
-- `LOG_LEVEL`: The log level (e.g., `INFO`, `DEBUG`, `ERROR`) (default: `INFO`).
 
 ### Troubleshooting
 If you experience issues, check the logs of the Docker container to identify any errors. You can view logs with:
