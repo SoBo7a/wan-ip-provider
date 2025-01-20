@@ -1,8 +1,9 @@
 ---
 services:
   wan-ip-provider:
-    build: .
+    # build: .
     container_name: wan-ip-provider
+    image: wan-ip-provider
     environment:
       # Logging configuration
       - LOG_LEVEL=INFO  # Choose between "DEBUG", "INFO", "WARN", "ERROR"
@@ -24,16 +25,16 @@ services:
       - RATE_LIMIT_IP_RENEWAL=300  # Minimum interval (in seconds) between /refresh-public-ip requests
 
     ports:
-      - "9090:9090"  # Expose the API on host port 8081 (change as needed)
+      - "9090:9090"
 
     volumes:
-      - /opt/wan-ip-provider:/app  # Bind-mount for persistent storage or development purposes
+      - /opt/wan-ip-provider:/app 
 
-    restart: always  # Ensure container restarts automatically in case of failure
+    restart: unless-stopped 
 
     networks:
       - wan-network
 
 networks:
   wan-network:
-    driver: bridge  # Default network driver
+    driver: bridge 
