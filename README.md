@@ -59,14 +59,6 @@ This application exposes the following API endpoints:
     Description: Returns a list of all stored IP addresses (IPv4 and IPv6).
     Response:
     ```json
-    {
-    "message": "No IP addresses found",
-    "data": []
-    }
-    ```
-
-    Or, if IPs exist:
-    ```json
     [
     {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
     ]
@@ -99,13 +91,6 @@ This application exposes the following API endpoints:
     "data": [
         {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
     ]
-    }
-    ```
-
-    Response (on failure):
-    ```json
-    {
-    "message": "Failed to force public IP refresh"
     }
     ```
 
