@@ -42,71 +42,71 @@ docker compose up -d
 This application exposes the following API endpoints:
 
 1. `/ips` (GET)
-Description: Returns a list of all stored IP addresses (IPv4 and IPv6).
-Response:
-```json
-{
-  "message": "No IP addresses found",
-  "data": []
-}
-```
+    Description: Returns a list of all stored IP addresses (IPv4 and IPv6).
+    Response:
+    ```json
+    {
+    "message": "No IP addresses found",
+    "data": []
+    }
+    ```
 
-Or, if IPs exist:
-```json
-[
-  {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
-]
-```
+    Or, if IPs exist:
+    ```json
+    [
+    {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
+    ]
+    ```
 
 2. `/ipv4` (GET)
-Description: Returns the current IPv4 address.
-Response:
-```json
-{
-  "ipv4": "192.168.0.1"
-}
-```
+    Description: Returns the current IPv4 address.
+    Response:
+    ```json
+    {
+    "ipv4": "192.168.0.1"
+    }
+    ```
 
 3. `/ipv6` (GET)
-Description: Returns the current IPv6 address.
-Response:
-```json
-{
-  "ipv6": "fe80::1"
-}
-```
+    Description: Returns the current IPv6 address.
+    Response:
+    ```json
+    {
+    "ipv6": "fe80::1"
+    }
+    ```
 
 4. `/refresh-public-ip` (GET)
-Description: Forces a new public IP refresh (only for FritzBox). This endpoint can only be called once every RATE_LIMIT_IP_RENEWAL seconds.
-Response (on success):
-```json
-{
-  "message": "Refreshed public IP successfully",
-  "data": [
-    {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
-  ]
-}
-```
+    Description: Forces a new public IP refresh (only for FritzBox). This endpoint can only be called once every RATE_LIMIT_IP_RENEWAL seconds.
+    Response (on success):
+    ```json
+    {
+    "message": "Refreshed public IP successfully",
+    "data": [
+        {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
+    ]
+    }
+    ```
 
-Response (on failure):
-```json
-{
-  "message": "Failed to force public IP refresh"
-}
-```
+    Response (on failure):
+    ```json
+    {
+    "message": "Failed to force public IP refresh"
+    }
+    ```
 
 5. `/wan-stats` (GET)
-Description: Returns WAN-related statistics from the FritzBox. You can pass a format query parameter to get human-readable results (e.g., ?format=true).
-Response:
-```json
-{
-  "max_downstream_speed": "100.00 Mbps",
-  "max_upstream_speed": "20.00 Mbps",
-  "uptime": "1d 2h 30m",
-  "bytes_sent": "500.00 MB",
-  "bytes_received": "800.00 MB"
-}
-```
+    Description: Returns WAN-related statistics from the FritzBox. You can pass a format query parameter to get human-readable results (e.g., ?format=true).
+    Response:
+    ```json
+    {
+    "max_downstream_speed": "100.00 Mbps",
+    "max_upstream_speed": "20.00 Mbps",
+    "uptime": "1d 2h 30m",
+    "bytes_sent": "500.00 MB",
+    "bytes_received": "800.00 MB"
+    }
+    ```
 
 ### Environment Variables
 
