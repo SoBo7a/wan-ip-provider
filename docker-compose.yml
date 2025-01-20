@@ -1,0 +1,39 @@
+---
+services:
+  wan-ip-provider:
+    build: .
+    container_name: wan-ip-provider
+    environment:
+      # Logging configuration
+      - LOG_LEVEL=INFO  # Choose between "DEBUG", "INFO", "WARN", "ERROR"
+
+      # Feature toggles
+      - ENABLE_REFRESH_IP_ENDPOINT=True  # Enable the /refresh-public-ip endpoint
+      - USE_FALLBACK=True  # Use fallback for fetching IPs
+
+      # IP fetching configuration
+      - IP_SOURCE=fritzbox  # "fritzbox" for local (IPv4 & IPv6) or "public" for external services (IPv4 only)
+      - FRITZBOX_HOST=fritz.box  # Update if your FritzBox isn't accessible on fritz.box
+
+      # API server configuration
+      - API_HOST=0.0.0.0  # Default API host
+      - API_PORT=9090  # API server port (internal container port remains the same)
+
+      # Update intervals and rate limits
+      - UPDATE_INTERVAL=60  # Interval in seconds for fetching and storing IPs
+      - RATE_LIMIT_IP_RENEWAL=300  # Minimum interval (in seconds) between /refresh-public-ip requests
+
+    ports:
+      - "9090:9090"  # Expose the API on host port 8081 (change as needed)
+
+    volumes:
+      - /opt/wan-ip-provider:/app  # Bind-mount for persistent storage or development purposes
+
+    restart: always  # Ensure container restarts automatically in case of failure
+
+    networks:
+      - wan-network
+
+networks:
+  wan-network:
+    driver: bridge  # Default network driver
