@@ -22,7 +22,7 @@ To run this container on your machine, follow the instructions below:
 
     ```bash
     git clone https://github.com/SoBo7a/wan-ip-provider.git
-    cd wan-ip-provider
+    cd wan-ip-provider && mkdir data
     ```
 
 2. **Build the Docker image using Dockerfile**:
