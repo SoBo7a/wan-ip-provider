@@ -60,7 +60,7 @@ This application exposes the following API endpoints:
     Response:
     ```json
     [
-    {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
+        {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
     ]
     ```
 
@@ -69,7 +69,7 @@ This application exposes the following API endpoints:
     Response:
     ```json
     {
-    "ipv4": "192.168.0.1"
+        "ipv4": "192.168.0.1"
     }
     ```
 
@@ -78,7 +78,7 @@ This application exposes the following API endpoints:
     Response:
     ```json
     {
-    "ipv6": "fe80::1"
+        "ipv6": "fe80::1"
     }
     ```
 
@@ -87,10 +87,10 @@ This application exposes the following API endpoints:
     Response (on success):
     ```json
     {
-    "message": "Refreshed public IP successfully",
-    "data": [
-        {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
-    ]
+        "message": "Refreshed public IP successfully",
+        "data": [
+            {"ipv4": "192.168.0.1", "ipv6": "fe80::1"}
+        ]
     }
     ```
 
@@ -99,11 +99,11 @@ This application exposes the following API endpoints:
     Response:
     ```json
     {
-    "max_downstream_speed": "100.00 Mbps",
-    "max_upstream_speed": "20.00 Mbps",
-    "uptime": "1d 2h 30m",
-    "bytes_sent": "500.00 MB",
-    "bytes_received": "800.00 MB"
+        "max_downstream_speed": "100.00 Mbps",
+        "max_upstream_speed": "20.00 Mbps",
+        "uptime": "1d 2h 30m",
+        "bytes_sent": "500.00 MB",
+        "bytes_received": "800.00 MB"
     }
     ```
 
